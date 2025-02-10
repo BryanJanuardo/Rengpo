@@ -1,0 +1,59 @@
+# ==========================
+# Global OS & Editor Files
+# ==========================
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# ==========================
+# Node.js (Express & Vite) 
+# ==========================
+# Ignore node_modules folders in any subdirectory
+**/node_modules/
+
+# Logs and Debug Files
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Build output directories
+**/dist/
+
+# ==========================
+# Vite Specific
+# ==========================
+# Vite output (if different from dist/)
+FE/dist/
+
+# ==========================
+# CodeIgniter (PHP)
+# ==========================
+# Ignore cache and log directories (adjust paths if your structure differs)
+BE/CodeIgniter/application/cache/
+BE/CodeIgniter/application/logs/
+
+# If you use Composer, ignore the vendor folder.
+**/vendor/
+
+# ==========================
+# Express (Node.js Backend)
+# ==========================
+# If your Express project uses environment files, ignore them.
+BE/Express/.env
+# (Node modules already ignored above)
+
+# ==========================
+# Go (TestGin)
+# ==========================
+# Ignore compiled binaries and build artifacts.
+BE/TestGin/bin/
+BE/TestGin/pkg/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out

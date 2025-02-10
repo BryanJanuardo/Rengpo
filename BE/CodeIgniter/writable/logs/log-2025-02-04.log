@@ -1,0 +1,839 @@
+CRITICAL - 2025-02-04 01:24:35 --> ErrorException: Constant expression contains invalid operations
+[Method: CLI, Route: migrate]
+in APPPATH\Config\Database.php on line 27.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-02-04 01:37:04 --> ErrorException: Array to string conversion
+[Method: CLI, Route: migrate]
+in APPPATH\Config\Database.php on line 199.
+ 1 APPPATH\Config\Database.php(199): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Config\\Database.php', 199)
+ 2 SYSTEMPATH\Config\Factories.php(235): Config\Database->__construct()
+ 3 SYSTEMPATH\Config\Factories.php(169): CodeIgniter\Config\Factories::createInstance('config', 'Config\\Database', [])
+ 4 SYSTEMPATH\Config\Factories.php(188): CodeIgniter\Config\Factories::__callStatic('config', [])
+ 5 SYSTEMPATH\Common.php(210): CodeIgniter\Config\Factories::get('config', 'Config\\Database')
+ 6 SYSTEMPATH\Database\MigrationRunner.php(143): config('Config\\Database')
+ 7 SYSTEMPATH\Config\Services.php(421): CodeIgniter\Database\MigrationRunner->__construct(Object(Config\Migrations), null)
+ 8 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::migrations(Object(Config\Migrations), null, false)
+ 9 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+10 SYSTEMPATH\Config\Services.php(416): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+11 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::migrations()
+12 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+13 SYSTEMPATH\Common.php(1000): CodeIgniter\Config\BaseService::get('migrations')
+14 SYSTEMPATH\Commands\Database\Migrate.php(70): service('migrations')
+15 SYSTEMPATH\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([])
+16 SYSTEMPATH\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', [])
+17 SYSTEMPATH\Boot.php(360): CodeIgniter\CLI\Console->run()
+18 SYSTEMPATH\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+19 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2025-02-04 01:45:17 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'rengpo', 3306, '', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(758): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(162): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(360): CodeIgniter\CLI\Console->run()
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(758): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(162): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(360): CodeIgniter\CLI\Console->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-02-04 01:48:33 --> ParseError: syntax error, unexpected end of file
+[Method: CLI, Route: make:controller/ProductController]
+in APPPATH\Config\Routes.php on line 9.
+ 1 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\Boot.php(360): CodeIgniter\CLI\Console->run()
+ 3 SYSTEMPATH\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 4 ROOTPATH\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2025-02-04 02:31:29 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: products]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(32): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:31:58 --> ErrorException: Array to string conversion
+[Method: POST, Route: products]
+in APPPATH\Controllers\ProductController.php on line 31.
+ 1 APPPATH\Controllers\ProductController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Controllers\\ProductController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:32:50 --> ErrorException: Array to string conversion
+[Method: POST, Route: productss]
+in APPPATH\Controllers\ProductController.php on line 31.
+ 1 APPPATH\Controllers\ProductController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Controllers\\ProductController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:33:11 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: productss]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(33): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:34:37 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: productss]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(33): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:34:48 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: products]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(33): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:36:08 --> ErrorException: Undefined variable $product
+[Method: POST, Route: products]
+in APPPATH\Controllers\ProductController.php on line 31.
+ 1 APPPATH\Controllers\ProductController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Controllers\\ProductController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:36:23 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: products]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(34): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:36:38 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\Product"
+[Method: POST, Route: products]
+in SYSTEMPATH\Model.php on line 822.
+ 1 SYSTEMPATH\Model.php(822): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Product')
+ 2 SYSTEMPATH\BaseModel.php(820): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH\Controllers\ProductController.php(33): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:40:30 --> Error: Cannot use object of type App\Models\Product as array
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:41:15 --> Error: Cannot use object of type App\Models\Product as array
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:41:24 --> Error: Object of class App\Models\Product could not be converted to string
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:41:36 --> Error: Cannot use object of type App\Models\Product as array
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:41:45 --> Error: Object of class App\Models\Product could not be converted to string
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:42:01 --> Error: Object of class App\Models\Product could not be converted to string
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:42:06 --> ErrorException: Undefined variable $product
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 APPPATH\Controllers\ProductController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Controllers\\ProductController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:42:29 --> ErrorException: Undefined variable $product
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 44.
+ 1 APPPATH\Controllers\ProductController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $product', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Controllers\\ProductController.php', 44)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:42:53 --> Error: Object of class App\Models\Product could not be converted to string
+[Method: DELETE, Route: products/produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:44:01 --> Error: Cannot use object of type App\Models\Product as array
+[Method: DELETE, Route: products/Produktes]
+in APPPATH\Controllers\ProductController.php on line 42.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('Produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 02:44:21 --> Error: Cannot use object of type App\Models\Product as array
+[Method: DELETE, Route: products/Produktes]
+in APPPATH\Controllers\ProductController.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->deleteByName('Produktes')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:08:56 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: PUT, Route: products/12]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 537.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH\Controllers\ProductController.php(51): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:09:02 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: PUT, Route: products/12]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 537.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH\Controllers\ProductController.php(51): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:09:28 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: PUT, Route: products/12]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 537.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH\Controllers\ProductController.php(51): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:09:46 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: PUT, Route: products/12]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 537.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH\Controllers\ProductController.php(51): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:10:53 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: PUT, Route: products/12]
+in SYSTEMPATH\HTTP\IncomingRequest.php on line 537.
+ 1 SYSTEMPATH\HTTP\IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH\Controllers\ProductController.php(51): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:12:04 --> Error: Call to a member function save() on array
+[Method: PUT, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:12:33 --> Error: Call to a member function save() on array
+[Method: PATCH, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:13:23 --> Error: Call to a member function set() on array
+[Method: PATCH, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:14:55 --> Error: Call to a member function update() on array
+[Method: PATCH, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:15:36 --> Error: Call to a member function update() on array
+[Method: PUT, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 03:16:55 --> Error: Call to a member function update() on array
+[Method: PUT, Route: products/12]
+in APPPATH\Controllers\ProductController.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->update('12')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+ERROR - 2025-02-04 04:00:25 --> mysqli_sql_exception: Can't create table `rengpo`.`products` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `p...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Database\Migrations\2025-02-04-011333_Product.php(43): CodeIgniter\Database\Forge->createTable('products')
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(866): App\Database\Migrations\Product->up()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Commands\Database\MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(360): CodeIgniter\CLI\Console->run()
+#14 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+ERROR - 2025-02-04 04:31:33 --> mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause' in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Controllers\ProductController.php(60): App\Models\Product->category()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\rewrite.php(44): require_once('C:\\Kuliah\\Inter...')
+#13 {main}
+CRITICAL - 2025-02-04 04:31:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+[Method: GET, Route: products/category]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 2 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:31:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 4 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:31:33 --> [Caused by] mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 5 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+ERROR - 2025-02-04 04:32:16 --> mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause' in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Controllers\ProductController.php(60): App\Models\Product->category()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\rewrite.php(44): require_once('C:\\Kuliah\\Inter...')
+#13 {main}
+CRITICAL - 2025-02-04 04:32:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+[Method: GET, Route: products/category]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 2 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:32:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 4 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:32:16 --> [Caused by] mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 5 APPPATH\Models\Product.php(54): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+ERROR - 2025-02-04 04:33:50 --> mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause' in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `product...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Models\Product.php(53): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Controllers\ProductController.php(60): App\Models\Product->category()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\rewrite.php(44): require_once('C:\\Kuliah\\Inter...')
+#13 {main}
+CRITICAL - 2025-02-04 04:33:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+[Method: GET, Route: products/category]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 2 APPPATH\Models\Product.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:33:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 4 APPPATH\Models\Product.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:33:50 --> [Caused by] mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `products`.`id` as `product_id`, `products`.`name` as `product_name`, `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`price` as `product_price`
+FROM `products`
+JOIN `categories` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 5 APPPATH\Models\Product.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ProductController.php(60): App\Models\Product->category()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->productsCategory()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+ERROR - 2025-02-04 04:35:33 --> mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause' in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Models\Category.php(53): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Controllers\ProductController.php(67): App\Models\Category->products()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\rewrite.php(44): require_once('C:\\Kuliah\\Inter...')
+#13 {main}
+CRITICAL - 2025-02-04 04:35:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+[Method: GET, Route: category/products]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 2 APPPATH\Models\Category.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:35:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 4 APPPATH\Models\Category.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:35:33 --> [Caused by] mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 5 APPPATH\Models\Category.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+ERROR - 2025-02-04 04:36:33 --> mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause' in C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Models\Category.php(52): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\app\Controllers\ProductController.php(67): App\Models\Category->products()
+#6 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+#7 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+#8 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Kuliah\Internship\Polytron\Projects\Rengpo\BE\CodeIgniter\system\rewrite.php(44): require_once('C:\\Kuliah\\Inter...')
+#13 {main}
+CRITICAL - 2025-02-04 04:36:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+[Method: GET, Route: category/products]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 2 APPPATH\Models\Category.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:36:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 4 APPPATH\Models\Category.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:36:33 --> [Caused by] mysqli_sql_exception: Unknown column 'product.category_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categories`.`id` as `category_id`, `categories`.`name` as `category_name`, `products`.`id` as `product_id`, `products`.`name` as `product_name`
+FROM `categories`
+JOIN `products` ON `product`.`category_id` = `categories`.`id`', [], false)
+ 5 APPPATH\Models\Category.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:36:41 --> ErrorException: Undefined array key "product_price"
+[Method: GET, Route: category/products]
+in APPPATH\Models\Category.php on line 68.
+ 1 APPPATH\Models\Category.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_price"', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Models\\Category.php', 68)
+ 2 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:37:45 --> ErrorException: Undefined array key "product_price"
+[Method: GET, Route: category/products]
+in APPPATH\Models\Category.php on line 68.
+ 1 APPPATH\Models\Category.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_price"', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Models\\Category.php', 68)
+ 2 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')
+CRITICAL - 2025-02-04 04:38:08 --> ErrorException: Undefined array key "product_price"
+[Method: GET, Route: category/products]
+in APPPATH\Models\Category.php on line 68.
+ 1 APPPATH\Models\Category.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_price"', 'C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\app\\Models\\Category.php', 68)
+ 2 APPPATH\Controllers\ProductController.php(67): App\Models\Category->products()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProductController->categoryProducts()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\Kuliah\\Internship\\Polytron\\Projects\\Rengpo\\BE\\CodeIgniter\\public\\index.php')

@@ -1,0 +1,42 @@
+# docker-compose up --build
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: rengpo
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: redis_cache
+    ports:
+      - "6379:6379"
+
+  app:
+    build: .
+    container_name: go_app
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ./migration/rengpo.sql:/rengpo.sql:ro
+    environment:
+      DB_HOST : mysql
+      DB_DATABASE : rengpo
+      DB_USERNAME : root
+      DB_PASSWORD : 123456
+      DB_DRIVER : mysql
+      DB_PARSETIME : true
+      DB_PORT : 3306
+
+      REDIS_HOST : redis
+      REDIS_PORT : 6379
+      REDIS_PASSWORD :
+
+      APP_PORT : 9090
