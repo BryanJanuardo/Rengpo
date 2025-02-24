@@ -31,6 +31,45 @@ func (con *BookController) FindAll(c *gin.Context) {
 	c.JSON(http.StatusOK, books);
 }
 
+func (con *BookController) TotalPageByCategoryId(c *gin.Context) {
+	ctx := c.Request.Context();
+	categoryId := c.Params.ByName("categoryId");
+	totalPage, err := con.Service.TotalPageByCategoryId(ctx, categoryId);
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()});
+		return;
+	}
+
+	c.JSON(http.StatusOK, totalPage);
+}
+
+func (con *BookController) TotalPage(c *gin.Context) {
+	ctx := c.Request.Context();
+	totalPage, err := con.Service.TotalPage(ctx);
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()});
+		return;
+	}
+
+	c.JSON(http.StatusOK, totalPage);
+}
+
+func (con *BookController) FindByCategoryId(c *gin.Context) {
+	ctx := c.Request.Context();
+	categoryId := c.Params.ByName("categoryId");
+	page := c.Params.ByName("page");
+	books, err := con.Service.GetBooksByCategoryId(ctx, categoryId, page);
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()});
+		return;
+	}
+
+	c.JSON(http.StatusOK, books);
+}
+
 func (con * BookController) FindById(c * gin.Context) {
 	ctx := c.Request.Context();
 	id := c.Params.ByName("id");
@@ -48,7 +87,8 @@ func (con * BookController) FindById(c * gin.Context) {
 func (con * BookController) Store(c * gin.Context) {
 	ctx := c.Request.Context();
 	var newBook Model.Book;
-
+	
+	log.Println(c.Request.Body);
 	err := c.BindJSON(&newBook);
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()});
@@ -60,7 +100,7 @@ func (con * BookController) Store(c * gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()});
 		return;
 	}
-
+	
 	c.JSON(http.StatusCreated, book);
 }
 
@@ -112,6 +152,8 @@ func (con * BookController) Paginate(c * gin.Context) {
 
 	c.JSON(http.StatusOK, books);
 }
+
+
 
 
 // func createBook(c *gin.Context){
