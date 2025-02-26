@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: testgin-app_1:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9090
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: mysql-url
+            - name: DB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_DATABASE
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: DB_DRIVER
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: DB_DRIVER
+            - name: DB_PARSETIME
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: DB_PARSETIME
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: DB_PORT
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: redis-config
+                  key: redis-url
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: REDIS_PORT
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: REDIS_PASSWORD
+            - name: APP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: APP_PORT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  type: NodePort
+  selector:
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090
+      nodePort: 30000
+# Jika minikube stopped: minikube stop -> minikube delete -> minikube start
+# Apply yaml File: kubectl apply -f webapp.yaml (-f untuk merujuk file)
+# Urutan Apply yaml File: config > secret > instance
+# Delete yamp File: kubectl delete -f webapp.yaml
+# Get IP minikube: minikube ip atau kubectl get node -o wide
+
+# Assign local image first time di power shell cmd: minikube docker-env --shell powershell | Invoke-Expression
+# Assign local image docker images to minikube: minikube image load my-local-image:latest
+
+# To Access Service with type ClusterIP Use Port Forward: kubectl port-forward svc/myservice-service 3306:3306
